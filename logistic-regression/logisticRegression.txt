@@ -1,0 +1,13 @@
+Logistic regression works very well on the fruit dataset, works well on
+generic1 and does not work well on generic2. This is due to the datasets'
+distributions. The fruit dataset is linearly seperable, generic1 is
+nearly linearly seperable and generic2 cannot be seperated well by a single
+line.
+
+Regularization helps for the generic1 dataset. It is almost linearly 
+seperable so the optimizer favors large weights which increase the
+confidence in how likely a data point belongs to a class, eventhough
+comparing to some smaller weights a few more training points are classified
+wrong. Regularization prevents the weights from being too large and thus
+produce more reasonable results.
+

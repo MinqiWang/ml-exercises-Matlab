@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CSC C11 - Assignment 3 - Clustering
+% Record here your answers to the questions in the handout for
+% part 2 of the assignment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EACH ANSWER MUST BE NO MORE THAN 3 LINES OF TEXT - LONGER
+% ANSWERS WILL BE IGNORED
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%
+%%  Step 0
+%%%%%%%%%%
+
+1) What is the average sparsity of input vectors? (in [0, 1])
+0.986623021171641
+2) Find the 10 most common terms, find the 10 least common terms.  (list, separated by commas)
+10 most common terms: plai, get, world, go, govern, first, time, game, on, peopl, year
+10 least common terms: 113bn, 900m, Â£125m, Â£59m, Â£160m, Â£197bn, pariba, propel, 75bn, Â£57bn
+3) What is the average frequency for non-zero vector entries?
+0.019863535914824
+%%%%%%%%%%
+%% Step 1
+%%%%%%%%%%
+
+1) Can you categorize the topic for each cluster? (list, comma separated)
+Economy, Economy, Economy, Sports, Politics
+Actually the word cloud of some clusters does not show an outstanding categroy
+and also some clusters seem to be in the same category.
+2) What factors make clustering difficult?
+Data is too sparse, too many dimensions, random initial centers, longer
+articles have higher word frequencies.
+3) Will we get better results with a lucky initial guess for cluster centers?
+   (yes/no and a short explanation of why)
+Yes, if we happen to guess initial centers that are far enough from each other
+and are also happen to be close enough to the real/optimal centers, we will
+likely end up with the desired result.
+%%%%%%%%%%
+%% Step 2
+%%%%%%%%%%
+
+1) What problem from step 1 is solved now?
+Every article now weights the same, compared to Step 1 we had longer articles
+contribute more to word frequencies.
+2) What are the topics for clusters?
+Technology, Technology, Technology, Movies, Technology
+3) Is the result better or worse than step 1? (give a short explanation as well)
+The result is a bit better than step 1, although not too much better. The reason is
+that in step 1 long articles will likely drag the centers to some high positions 
+and now we avoid this problem by normalization.
+%%%%%%%%%%
+%% Step 3
+%%%%%%%%%%
+
+1) What are the topics for clusters?
+Sports, Politics, Film, Business, Technology
+2) Why is the clustering better now?
+The result is better now because by applying diffusion we have made the word frequencies
+in articles that are suppose to have the same/similar topic more consistent, thus when
+doing Kmeans those articles will tend to be assigned to the same cluster.
+3) What is the general lesson you learned in clustering sparse, high-dimensional
+   data?
+The noises tend to affect the data more if the data is sparse and high-dimensional. 
+Therefore, pre-processing the data or even cautiously choosing the data
+are much needed to make it able to be learnt.
+%%%%%%%%%%
+%% Step 4
+%%%%%%%%%%
+
+1) What is the total error difference between K-Means++ and random center initialization?
+The error with K-Means++ is more stable around 0.0062.
+2) What is the mean and variance of total errors after running K-Means++ 5 times?
+Mean: 0.0064733859275442
+Varaicne: 9.7264399592692 * 10^(-8)
+3) Do the training errors appear to be more consistent?
+Yes.
+4) Do the topics appear to be more meaningful?
+With Kmeans++, the number of times we see meaningful topics is increased, which is
+reasonable because the mean and variance of total error is lower compared to the case
+with random center initialization.
+%%%%%%%%%%
+%% Step 6
+%%%%%%%%%%
+
+1) Do the points from different classes look reasonably separable in this space?
+Yes, from the plot we can see that the points with different colors do not mix
+together, which means the data in the same class groups up together and data in
+different classes is seperated from each other.
+
+%%%%%%%%%%%%% End of questions %%%%%%%%%%%%%%%%%%%%%%%%%%%%

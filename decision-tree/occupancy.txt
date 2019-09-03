@@ -1,0 +1,20 @@
+
+This file is for written answers:
+
+A single DT is not very prone to over-fitting with the occupancy dataset. 
+Roughly, the classification accuracy increases when the nubmer of trees 
+increases. 
+
+Generally, a random forest is helpful because we get a more stable accuracy
+with more trees and we are less affected by the noise in the training data.
+A single DT might overfit the training data in some situations, which 
+depends on what portion of data and features are decided to be considered. 
+However,it's very unlikely that all of the trees overfit the training data 
+when we have more than one randomly configured tree, which is why a random 
+forest is helpful.
+
+However, for this particular dataset, the forest is not so helpful as a
+single tree can do very good prediction on the validation set and test set,
+because there are relatively few features and large training data set.
+
+

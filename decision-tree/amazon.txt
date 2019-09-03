@@ -1,0 +1,25 @@
+
+This file is for written answers:
+
+It seems we cannot get very high accuracies. Random forest only helps when
+a large number of trees are learnt. This dataset (relatively few training 
+data and large number of features) is completely different from the
+occupancy dataset (relatively large training data and few number of
+features). When the training data is not enough and there are too many
+features, the accuracy of decision trees are likely to be affected by the 
+noise features in the way that actually irrelevant features are mistakenly
+considered much relevant. For example, consider a training data set of 10
+students, 5 males and 5 females, and it happens that all the males have 
+CGPA <= 2 while all the females have CGPA >= 3.8. Then if at some point we
+select CGPA as the split dimension, we will probably split on condition
+"CGPA > 3 ?" to get the maximum information gain -- data points are
+perfectly classified. However, usually we don't believe there is such a
+relationship between a student's gender and his or her grade.
+
+A better way to choose split function given a selected feature is to select
+the function that results in the average, or expectation, of information 
+gain of all the possible split functions for this feature. This
+approach will work much better than just selecting the function that 
+maximizes information gain, when the learning process is affected by the
+error I described above.
+
